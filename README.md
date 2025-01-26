@@ -45,31 +45,21 @@ The set of states from which the robot can surely reach the goal is shown below.
 
 ## Reachability analysis
 The DeepReach Toolbox is a powerful toolbox that can solve many reachability problems. Before we start, we need to define a `Robot2D` class that inherits from the abstract `Dynamics` class. To define the functions in the `Robot2D` class, we will use Hamilton-Jacobi reachability analysis.  
-The dynamics of the robot are as follows:
-$
+The dynamics of the robot are as follows:$
 \left\{\begin{array}{l}
 \dot x = v\cos(u)\\
 \dot y = v\sin(u)\\
 \end{array}
-\right.\tag{1}
-$
-The $l(x)$ for this model is $l(x):=\Vert(x,y)\Vert-\beta$, and the Hamiltonian can be computed as follows:
-$
-    H(x,t) = p_1v\cos(u) + p_2v\sin(u)=v\sqrt{p_1^2+p_2^2}\sin(u+\phi),\tag{2}
-$
-$
-\phi=\arctan{\frac{p_1}{p_2}},
-$
+\right.\tag{1}$The $l(x)$ for this model is $l(x):=\Vert(x,y)\Vert-\beta$, and the Hamiltonian can be computed as follows:$H(x,t) = p_1v\cos(u) + p_2v\sin(u)=v\sqrt{p_1^2+p_2^2}\sin(u+\phi),\tag{2}$
+$\phi=\arctan{\frac{p_1}{p_2}},$
 where $p_1$ and $p_2$ are the spatial derivative of the value function with respect to x and y respectively. Besides, the inequality $v\sqrt{p_1^2+p_2^2}\geq0$ always holds. Therefore, if we want to reach a goal, $\sin(u+\phi)$ needs to take the minimum value of -1, and at this point, $u$ equals $\frac{\pi}{2}-\phi$. Conversely, if we want to avoid a goal, $\sin(u+\phi)$ needs to take the maximum value of 1, and at this point, $u$ equals $-\frac{\pi}{2}-\phi$.   
-To sum up, we can define the Hamiltonian used in the `Robot2D` class as follows: 
-$
+To sum up, we can define the Hamiltonian used in the `Robot2D` class as follows: $
 H(x,t)  =
 \begin{cases}
 -v\sqrt{p_1^2+p_2^2} & \text{if } mode=reach \\
 v\sqrt{p_1^2+p_2^2} & \text{if } mode=avoid
 \end{cases}\tag{3}
-$
-Next, we can set up the `Robot2D` class. The code is as follows:  
+$Next, we can set up the `Robot2D` class. The code is as follows:  
 The `__init__` function initializes the goal and the velocity. Although the system is a 2D system, we still set the dimension to 3 in order to draw the figure. These three dimensions represent the x-coordinate, y-coordinate, and the heading of the robot.
 ```python
     def __init__(self, goalR:float, velocity:float, angle_alpha_factor:float, set_mode:str, freeze_model: bool):
