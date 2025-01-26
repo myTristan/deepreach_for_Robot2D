@@ -152,4 +152,4 @@ The complete implementation of the `Robot2D` class can be found in `dynamics.py`
 }
 ```
 ## Contact
-If there are any shortcomings in my answers, please feel free to email me (zhmy22@mails.tsinghua.edu.cn). I welcome your corrections.
+If there are any shortcomings in my answers, please feel free to email me (zhmy22@mails.tsinghua.edu.cn). I would be very grateful if I could engage in further discussions about my submitted answers and the HJ reachability analysis.
