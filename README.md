@@ -62,12 +62,12 @@ The dynamics of the robot are as follows:
 \dot x = v\cos(u)\\
 \dot y = v\sin(u)\\
 \end{array}
-\right.\tag{1}
+\right.
 ```
 The $l(x)$ for this model is $l(x):=\Vert(x,y)\Vert-\beta$, and the Hamiltonian can be computed as follows:
 ```math
 H(x,t) = p_1v\cos(u) + p_2v\sin(u)=v\sqrt{p_1^2+p_2^2}\sin(u+\phi),
-```\tag{2}
+```
 ```math
 \phi=\arctan{\frac{p_1}{p_2}},
 ```
@@ -79,7 +79,7 @@ H(x,t)  =
 -v\sqrt{p_1^2+p_2^2} & \text{if } mode=reach \\
 v\sqrt{p_1^2+p_2^2} & \text{if } mode=avoid
 \end{cases}
-```\tag{3}
+```
 Next, we can set up the `Robot2D` class. The code is as follows:  
 The `__init__` function initializes the goal and the velocity. Although the system is a 2D system, we still set the dimension to 3 in order to draw the figure. These three dimensions represent the x-coordinate, y-coordinate, and the heading of the robot.
 ```python
@@ -120,7 +120,7 @@ The `dsdt` function calculates the derivatives of x and y.
         dsdt[..., 1] = self.velocity*torch.sin(control[..., 0])
         return dsdt
 ```
-The `hamiltonian` function calculates the Hamiltonian from formula (3).
+The `hamiltonian` function calculates the Hamiltonian from the formula above.
 ```python
     def hamiltonian(self, state, dvds):
         if self.freeze_model:
