@@ -60,7 +60,7 @@ H(x,t) = p_1v\cos(u) + p_2v\sin(u)=v\sqrt{p_1^2+p_2^2}\sin(u+\phi),
 ```math
 \phi=\arctan{\frac{p_1}{p_2}},
 ```
-where $p_1$ and $p_2$ are the spatial derivative of the value function with respect to x and y respectively. Besides, the inequality $v\sqrt{p_1^2+p_2^2}\geq0$ always holds. Therefore, if we want to reach a goal, $\sin(u+\phi)$ needs to take the minimum value of -1, and at this point, $u$ equals $\frac{\pi}{2}-\phi$. Conversely, if we want to avoid a goal, $\sin(u+\phi)$ needs to take the maximum value of 1, and at this point, $u$ equals $-\frac{\pi}{2}-\phi$.   
+where $p_1$ and $p_2$ are the spatial derivative of the value function with respect to $x$ and $y$ respectively. Besides, the inequality $v\sqrt{p_1^2+p_2^2}\geq0$ always holds. Therefore, if we want to reach a goal, $\sin(u+\phi)$ needs to take the minimum value of -1, and at this point, $u$ equals $\frac{\pi}{2}-\phi$. Conversely, if we want to avoid a goal, $\sin(u+\phi)$ needs to take the maximum value of 1, and at this point, $u$ equals $-\frac{\pi}{2}-\phi$.   
 To sum up, we can define the Hamiltonian used in the `Robot2D` class as follows:
 ```math
 H(x,t)  =
@@ -70,7 +70,7 @@ v\sqrt{p_1^2+p_2^2} & \text{if } mode=avoid
 \end{cases}
 ```
 Next, we can set up the `Robot2D` class. The code is as follows:  
-The `__init__` function initializes the goal and the velocity. Although the system is a 2D system, we still set the dimension to 3 in order to draw the figure. These three dimensions represent the x-coordinate, y-coordinate, and the heading of the robot.
+The `__init__` function initializes the goal and the velocity. Although the system is a 2D system, we still set the dimension to 3 in order to draw the figure. These three dimensions represent the $x$-coordinate, $y$-coordinate, and the heading of the robot.
 ```python
     def __init__(self, goalR:float, velocity:float, angle_alpha_factor:float, set_mode:str, freeze_model: bool):
         self.goalR = goalR
@@ -89,7 +89,7 @@ The `__init__` function initializes the goal and the velocity. Although the syst
         )
 ```
 
-The `state_test_range` function sets the test range. From our intuitional analysis, we can set the range of x and y to be $[-2, 2]$, and set the range of $\theta$ to be $[-\pi, \pi]$.
+The `state_test_range` function sets the test range. From our intuitional analysis, we can set the range of $x$ and $y$ to be $[-2, 2]$, and set the range of $\theta$ to be $[-\pi, \pi]$.
 ```python
     def state_test_range(self):
         return [
@@ -99,7 +99,7 @@ The `state_test_range` function sets the test range. From our intuitional analys
         ]
 ```
 
-The `dsdt` function calculates the derivatives of x and y.
+The `dsdt` function calculates the derivatives of $x$ and $y$.
 ```python
     def dsdt(self, state, control, disturbance):
         if self.freeze_model:
