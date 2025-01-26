@@ -142,12 +142,13 @@ The complete implementation of the `Robot2D` class can be found in `dynamics.py`
 ```
 
 ```
-@inproceedings{bansal2020deepreach,
-    author = {Bansal, Somil
-              and Tomlin, Claire},
-    title = {{DeepReach}: A Deep Learning Approach to High-Dimensional Reachability},
-    booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
-    year={2021}
+@inproceedings{bansal2021deepreach,
+  title={Deepreach: A deep learning approach to high-dimensional reachability},
+  author={Bansal, Somil and Tomlin, Claire J},
+  booktitle={2021 IEEE International Conference on Robotics and Automation (ICRA)},
+  pages={1817-1824},
+  year={2021},
+  organization={IEEE}
 }
 ```
 ## Contact
