@@ -47,11 +47,13 @@ The set of states from which the robot can surely reach the goal is shown below.
 The DeepReach Toolbox is a powerful toolbox that can solve many reachability problems. Before we start, we need to define a `Robot2D` class that inherits from the abstract `Dynamics` class. To define the functions in the `Robot2D` class, we will use Hamilton-Jacobi reachability analysis.  
 The dynamics of the robot are as follows:
 $$
+\begin{equation}
 \left\{\begin{array}{l}
 \dot x = v\cos(u)\\
 \dot y = v\sin(u)\\
 \end{array}
 \right.\tag{1}
+\end{equation}
 $$
 The $l(x)$ for this model is $l(x):=\Vert(x,y)\Vert-\beta$, and the Hamiltonian can be computed as follows:
 $$
