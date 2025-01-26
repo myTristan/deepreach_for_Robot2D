@@ -1,7 +1,7 @@
 # Using the DeepReach Toolbox to calculate the BRT for robot
 
 Author<br>
-[Zhang Haimingyue](https://myTristan.github.io/),
+[Zhang Haimingyue](https://myTristan.github.io/)
 <br>
 This repository provides the code for solving the safe set of a robot using the DeepReach Toolbox.
 
