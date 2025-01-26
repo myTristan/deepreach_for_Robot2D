@@ -65,21 +65,21 @@ The dynamics of the robot are as follows:
 \right.\tag{1}
 ```
 The $l(x)$ for this model is $l(x):=\Vert(x,y)\Vert-\beta$, and the Hamiltonian can be computed as follows:
-```math\tag{2}
+```math
 H(x,t) = p_1v\cos(u) + p_2v\sin(u)=v\sqrt{p_1^2+p_2^2}\sin(u+\phi),
-```
+```\tag{2}
 ```math
 \phi=\arctan{\frac{p_1}{p_2}},
 ```
 where $p_1$ and $p_2$ are the spatial derivative of the value function with respect to x and y respectively. Besides, the inequality $v\sqrt{p_1^2+p_2^2}\geq0$ always holds. Therefore, if we want to reach a goal, $\sin(u+\phi)$ needs to take the minimum value of -1, and at this point, $u$ equals $\frac{\pi}{2}-\phi$. Conversely, if we want to avoid a goal, $\sin(u+\phi)$ needs to take the maximum value of 1, and at this point, $u$ equals $-\frac{\pi}{2}-\phi$.   
 To sum up, we can define the Hamiltonian used in the `Robot2D` class as follows:
-```math\tag{3}
+```math
 H(x,t)  =
 \begin{cases}
 -v\sqrt{p_1^2+p_2^2} & \text{if } mode=reach \\
 v\sqrt{p_1^2+p_2^2} & \text{if } mode=avoid
 \end{cases}
-```
+```\tag{3}
 Next, we can set up the `Robot2D` class. The code is as follows:  
 The `__init__` function initializes the goal and the velocity. Although the system is a 2D system, we still set the dimension to 3 in order to draw the figure. These three dimensions represent the x-coordinate, y-coordinate, and the heading of the robot.
 ```python
