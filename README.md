@@ -43,7 +43,7 @@ The plot of the safe set is shown below. The blue part represents the safe set.
 The set of states from which the robot can surely reach the goal is shown below. The red circle represents these states.
 ![Fig3](results/robot2d_run3/training/checkpoints/BRS_validation_plot_epoch_100000.png)
 
-## Reachability analysis
+## Reachability Analysis
 The DeepReach Toolbox is a powerful toolbox that can solve many reachability problems. Before we start, we need to define a `Robot2D` class that inherits from the abstract `Dynamics` class. To define the functions in the `Robot2D` class, we will use Hamilton-Jacobi reachability analysis.  
 The dynamics of the robot are as follows:
 ```math
